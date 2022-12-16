@@ -1,0 +1,546 @@
+Analysis & Synthesis report for main
+Tue Dec 07 00:18:14 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: clock:clk
+ 11. Port Connectivity Checks: "Static_SSD:letter_O"
+ 12. Port Connectivity Checks: "Static_SSD:letter_G"
+ 13. Port Connectivity Checks: "Static_SSD:letter_P"
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Dec 07 00:18:14 2021       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; main                                        ;
+; Top-level Entity Name              ; main                                        ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 100                                         ;
+;     Total combinational functions  ; 92                                          ;
+;     Dedicated logic registers      ; 45                                          ;
+; Total registers                    ; 45                                          ;
+; Total pins                         ; 165                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C6GES   ;                    ;
+; Top-level entity name                                            ; main               ; main               ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                             ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                               ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------+---------+
+; main.v                           ; yes             ; User Verilog HDL File  ; C:/Users/DinujaWattage/Documents/3201/Final project/main.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 100       ;
+;                                             ;           ;
+; Total combinational functions               ; 92        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 42        ;
+;     -- 3 input functions                    ; 10        ;
+;     -- <=2 input functions                  ; 40        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 61        ;
+;     -- arithmetic mode                      ; 31        ;
+;                                             ;           ;
+; Total registers                             ; 45        ;
+;     -- Dedicated logic registers            ; 45        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 165       ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; cin~input ;
+; Maximum fan-out                             ; 37        ;
+; Total fan-out                               ; 655       ;
+; Average fan-out                             ; 1.40      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name     ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------+-------------+--------------+
+; |main                      ; 92 (2)              ; 45 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 165  ; 0            ; 0          ; |main                   ; main        ; work         ;
+;    |clock:clk|             ; 90 (83)             ; 37 (37)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|clock:clk         ; clock       ; work         ;
+;       |SSD:ss1|            ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|clock:clk|SSD:ss1 ; SSD         ; work         ;
+;    |storing:comb_3|        ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |main|storing:comb_3    ; storing     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 45    ;
+; Number of registers using Synchronous Clear  ; 1     ;
+; Number of registers using Synchronous Load   ; 32    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 4     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main|clock:clk|firseg[1]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |main|clock:clk|count[12]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clock:clk              ;
++----------------+----------------------------------+-----------------+
+; Parameter Name ; Value                            ; Type            ;
++----------------+----------------------------------+-----------------+
+; D              ; 00000001011111010111100001000000 ; Unsigned Binary ;
++----------------+----------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Static_SSD:letter_O"                                                                                                                                                                ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                            ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; y1     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y1[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y2     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y2[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y3     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y3[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y4     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y4[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y5     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y5[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y6     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y6[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y7     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y7[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Static_SSD:letter_G"                                                                                                                                                                ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                            ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; y1     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y1[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y2     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y2[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; y3     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y3[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y4     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y4[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y5     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y5[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y6     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y6[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y7     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y7[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Static_SSD:letter_P"                                                                                                                                                                ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                            ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; y1     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y1[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y2     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y2[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y3     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y3[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; y4     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y4[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; y5     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y5[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y6     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y6[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; y7     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y7[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 165                         ;
+; cycloneiii_ff         ; 45                          ;
+;     ENA               ; 3                           ;
+;     ENA SCLR          ; 1                           ;
+;     SLD               ; 32                          ;
+;     plain             ; 9                           ;
+; cycloneiii_lcell_comb ; 94                          ;
+;     arith             ; 31                          ;
+;         2 data inputs ; 31                          ;
+;     normal            ; 63                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 10                          ;
+;         4 data inputs ; 42                          ;
+;                       ;                             ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 3.93                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Tue Dec 07 00:17:53 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off main -c main
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 7 design units, including 7 entities, in source file main.v
+    Info (12023): Found entity 1: main File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 1
+    Info (12023): Found entity 2: storing File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 40
+    Info (12023): Found entity 3: clock File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 202
+    Info (12023): Found entity 4: SSD File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 245
+    Info (12023): Found entity 5: turn_SSD File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 261
+    Info (12023): Found entity 6: Static_SSD File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 297
+    Info (12023): Found entity 7: outcome_SSD File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 312
+Critical Warning (10846): Verilog HDL Instantiation warning at main.v(22): instance has no name File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 22
+Info (12127): Elaborating entity "main" for the top level hierarchy
+Warning (10034): Output port "player1" at main.v(18) has no driver File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+Warning (10034): Output port "player2" at main.v(18) has no driver File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+Info (12128): Elaborating entity "clock" for hierarchy "clock:clk" File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 20
+Warning (10762): Verilog HDL Case Statement warning at main.v(229): can't check case statement for completeness because the case expression has too many possible states File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 229
+Info (12128): Elaborating entity "SSD" for hierarchy "clock:clk|SSD:ss1" File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 214
+Info (12128): Elaborating entity "storing" for hierarchy "storing:comb_3" File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 22
+Warning (10230): Verilog HDL assignment warning at main.v(75): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 75
+Warning (10230): Verilog HDL assignment warning at main.v(79): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 79
+Warning (10230): Verilog HDL assignment warning at main.v(83): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 83
+Warning (10230): Verilog HDL assignment warning at main.v(87): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 87
+Warning (10230): Verilog HDL assignment warning at main.v(91): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 91
+Warning (10230): Verilog HDL assignment warning at main.v(95): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 95
+Warning (10230): Verilog HDL assignment warning at main.v(99): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 99
+Warning (10230): Verilog HDL assignment warning at main.v(103): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 103
+Warning (10230): Verilog HDL assignment warning at main.v(135): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 135
+Warning (10230): Verilog HDL assignment warning at main.v(139): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 139
+Warning (10230): Verilog HDL assignment warning at main.v(143): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 143
+Warning (10230): Verilog HDL assignment warning at main.v(147): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 147
+Warning (10230): Verilog HDL assignment warning at main.v(151): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 151
+Warning (10230): Verilog HDL assignment warning at main.v(155): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 155
+Warning (10230): Verilog HDL assignment warning at main.v(159): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 159
+Warning (10230): Verilog HDL assignment warning at main.v(163): truncated value with size 4 to match size of target (1) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 163
+Warning (10030): Net "win" at main.v(44) has no driver or initial value, using a default initial value '0' File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 44
+Info (12128): Elaborating entity "outcome_SSD" for hierarchy "outcome_SSD:outcome" File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 24
+Warning (10240): Verilog HDL Always Construct warning at main.v(318): inferring latch(es) for variable "y0", which holds its previous value in one or more paths through the always construct File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at main.v(318): inferring latch(es) for variable "y1", which holds its previous value in one or more paths through the always construct File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at main.v(318): inferring latch(es) for variable "y2", which holds its previous value in one or more paths through the always construct File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at main.v(318): inferring latch(es) for variable "y3", which holds its previous value in one or more paths through the always construct File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at main.v(318): inferring latch(es) for variable "y4", which holds its previous value in one or more paths through the always construct File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at main.v(318): inferring latch(es) for variable "y5", which holds its previous value in one or more paths through the always construct File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at main.v(318): inferring latch(es) for variable "y6", which holds its previous value in one or more paths through the always construct File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 318
+Info (10041): Inferred latch for "y6" at main.v(329) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 329
+Info (10041): Inferred latch for "y5" at main.v(329) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 329
+Info (10041): Inferred latch for "y4" at main.v(329) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 329
+Info (10041): Inferred latch for "y3" at main.v(329) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 329
+Info (10041): Inferred latch for "y2" at main.v(329) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 329
+Info (10041): Inferred latch for "y1" at main.v(329) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 329
+Info (10041): Inferred latch for "y0" at main.v(329) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 329
+Info (12128): Elaborating entity "Static_SSD" for hierarchy "Static_SSD:letter_P" File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 26
+Info (12128): Elaborating entity "turn_SSD" for hierarchy "turn_SSD:player_turn" File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 28
+Warning (10240): Verilog HDL Always Construct warning at main.v(268): inferring latch(es) for variable "w", which holds its previous value in one or more paths through the always construct File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 268
+Warning (10240): Verilog HDL Always Construct warning at main.v(268): inferring latch(es) for variable "x", which holds its previous value in one or more paths through the always construct File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 268
+Warning (10240): Verilog HDL Always Construct warning at main.v(268): inferring latch(es) for variable "y", which holds its previous value in one or more paths through the always construct File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 268
+Warning (10240): Verilog HDL Always Construct warning at main.v(268): inferring latch(es) for variable "z", which holds its previous value in one or more paths through the always construct File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 268
+Info (10041): Inferred latch for "z" at main.v(276) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 276
+Info (10041): Inferred latch for "y" at main.v(276) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 276
+Info (10041): Inferred latch for "x" at main.v(276) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 276
+Info (10041): Inferred latch for "w" at main.v(276) File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 276
+Warning (14025): LATCH primitive "outcome_SSD:outcome|y5" is permanently disabled File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 329
+Warning (14025): LATCH primitive "outcome_SSD:outcome|y3" is permanently disabled File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 329
+Warning (14025): LATCH primitive "outcome_SSD:outcome|y2" is permanently disabled File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 329
+Warning (14025): LATCH primitive "outcome_SSD:outcome|y4" is permanently disabled File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 329
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "player1[0]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[1]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[2]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[3]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[4]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[5]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[6]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[7]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[8]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[9]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[10]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[11]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[12]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[13]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[14]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[15]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[16]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[17]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[18]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[19]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[20]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[21]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[22]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[23]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[24]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[25]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[26]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[27]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[28]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[29]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[30]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player1[31]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[0]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[1]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[2]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[3]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[4]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[5]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[6]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[7]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[8]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[9]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[10]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[11]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[12]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[13]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[14]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[15]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[16]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[17]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[18]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[19]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[20]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[21]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[22]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[23]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[24]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[25]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[26]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[27]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[28]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[29]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[30]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "player2[31]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 18
+    Warning (13410): Pin "status[0]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 15
+    Warning (13410): Pin "status[1]" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 15
+    Warning (13410): Pin "LED10" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED11" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED12" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED13" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED14" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED15" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED16" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED20" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED21" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED22" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED23" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED24" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED25" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED26" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 10
+    Warning (13410): Pin "LED31" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 11
+    Warning (13410): Pin "LED35" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 11
+    Warning (13410): Pin "LED40" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 11
+    Warning (13410): Pin "LED41" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 11
+    Warning (13410): Pin "LED42" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 11
+    Warning (13410): Pin "LED43" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 11
+    Warning (13410): Pin "LED44" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 11
+    Warning (13410): Pin "LED45" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 11
+    Warning (13410): Pin "LED46" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 11
+    Warning (13410): Pin "LED50" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 11
+    Warning (13410): Pin "LED51" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 11
+    Warning (13410): Pin "LED52" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 12
+    Warning (13410): Pin "LED53" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 12
+    Warning (13410): Pin "LED54" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 12
+    Warning (13410): Pin "LED55" is stuck at GND File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 12
+    Warning (13410): Pin "LED56" is stuck at VCC File: C:/Users/DinujaWattage/Documents/3201/Final project/main.v Line: 12
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 265 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 12 input pins
+    Info (21059): Implemented 153 output pins
+    Info (21061): Implemented 100 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 135 warnings
+    Info: Peak virtual memory: 4762 megabytes
+    Info: Processing ended: Tue Dec 07 00:18:14 2021
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:48
+
+
