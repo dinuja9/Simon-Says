@@ -1,0 +1,85 @@
+module main(input sw0,sw1,sw2,sw3,sw4,sw5,button,cin, output secseg, fiseg,cout,LED0,LED1,LED2,LED3,LED4,LED5,LED6,LED0a,LED1a,LED2a,LED3a,LED4a,LED5a,LED6a,LED0b,LED1b,LED2b,LED3b,LED4b,LED5b,LED6b,LED0c,LED1c,LED2c,LED3c,LED4c,LED5c,LED6c,swLED0,swLED1,swLED2,swLED3,swLED4,swLED5,swLED6,l0,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13);
+
+int selectedswitches[];
+
+clock clck(cin,cout, secseg, firseg,l0,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13);
+
+always @ (button, posedge cin)begin
+selectedswitches[6];
+if (button==0)begin
+	if(sw0==1)
+	selectedswitches[0]= 10 
+	if(sw1==1)
+	selectedswitches[1]= 11 
+	if(sw2==1)
+	selectedswitches[2]= 12 
+	if(sw3==1)
+	selectedswitches[3]= 13 
+	if(sw4==1)
+	selectedswitches[4]= 14 
+	if(sw5==1)
+	selectedswitches[5]= 15 
+end
+else
+
+
+
+
+endmodule 
+
+
+
+
+
+
+module clock(cin,cout, secseg, firseg,l0,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13);
+
+input cin;
+output reg cout;
+wire track;
+output reg [3:0] secseg, firseg;
+output l0,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13;
+
+reg[31:0] count; 
+parameter D = 32'd25000000;
+
+SSD ss2(secseg[3],secseg[2],secseg[1],secseg[0],l7,l8,l9,l10,l11,l12,l13);
+SSD ss1(firseg[3],firseg[2],firseg[1],firseg[0],l0,l1,l2,l3,l4,l5,l6);
+
+always @(posedge cin)
+begin
+   count <= count - 32'd1;
+      if (count >= (D-1)) begin
+         cout <= ~cout;
+         count <= 300000000;
+            firseg <= 7'b0000101;  // 5
+            secseg <= 7'b0000000;  // 0
+      end
+    else begin
+        case(count)  
+           250000000: firseg <= 4'b0101;  //5   
+           200000000: firseg <= 4'b0100;  //4 
+           150000000: firseg <= 4'b0011;  //3 
+           100000000: firseg <= 4'b0010;  //2
+           50000000: firseg <= 4'b0001;   //1
+           1000: firseg <= 4'b0000;       //0
+        endcase
+    end    
+        
+        
+end
+
+
+endmodule 
+
+module SSD(w,x,y,z,LED0,LED1,LED2,LED3,LED4,LED5,LED6);
+input w,x,y,z;
+output LED0,LED1,LED2,LED3,LED4,LED5,LED6;
+assign LED0=(~w & ~x & ~y & z)|(~w & x & ~y & ~z)|(w & ~x & y & z)|(w & x & ~y & z);
+assign LED1=(~w & x & ~y & z)|(~w & x & y & ~z)|(w & ~x & y & z)|(w & x & ~y & ~z)|(w & x & y & ~z)|(w & x & y & z);
+assign LED2=(~w & ~x & y & ~z)|(w & x & y)|(w & x & ~z);
+assign LED3=(~w & ~x & ~y & z)|(~w & x & ~y & ~z)|(~w & x & y & z)|(w & ~x & y & ~z)|(w & x & y & z);
+assign LED4=(~w & ~x & ~y & z)|(~w & ~x & y & z)|(~w & x & ~y & ~z)|(~w & x & ~y & z)|(w & ~x & ~y & z)|(~w & x & y & z);
+assign LED5=(~w & ~x & ~y & z)|(~w & ~x & y & ~z)|(~w & ~x & y & z)|(~w & x & y & z)|(w & x & ~y & z);
+assign LED6=(~w & ~x & ~y & ~z)|(~w & ~x & ~y & z)|(~w & x & y & z)|(w & x & ~y & ~z);
+endmodule
